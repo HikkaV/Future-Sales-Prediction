@@ -27,10 +27,9 @@ def load_data(processed=False):
 def save_data(data: pd.DataFrame):
     if os.path.exists('data/processed_data/'):
         shutil.rmtree('data/processed_data/')
-    else:
-        os.mkdir('data/processed_data/')
-        data.to_hdf('data/processed_data/data.csv', key='df',index=False)
 
+    os.mkdir('data/processed_data/')
+    data.to_hdf('data/processed_data/data.csv', key='df', index=False)
 
 
 def exclude_prepositions(x, prepositions_to_exclude):

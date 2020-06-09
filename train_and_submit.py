@@ -11,7 +11,7 @@ def train_and_submit():
     X_train = train_subset.drop(columns=['item_cnt_month', 'date_block_num'])
     Y_valid = val_subset['item_cnt_month']
     X_valid = val_subset.drop(columns=['item_cnt_month', 'date_block_num'])
-    X_test = test_subset.drop(columns=['item_cnt_month', 'date_bock_num'])
+    X_test = test_subset.drop(columns=['item_cnt_month', 'date_block_num'])
     print('Created training and validation data')
     model = xgb.XGBRegressor(
         max_depth=4,
@@ -39,7 +39,7 @@ def train_and_submit():
     submission = submission[['ID', 'item_cnt_month']]
     if not os.path.exists('data/submission/'):
         os.mkdir('data/submission/')
-    submission.to_csv('submission.csv', index=False)
+    submission.to_csv('data/submission/submission.csv', index=False)
     print('Made submission file')
 
 if __name__ == '__main__':

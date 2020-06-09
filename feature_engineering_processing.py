@@ -35,6 +35,7 @@ def create_shop_city_feature(shops):
 
 
 def aggregate_data(train_sales, test_sales):
+    train_sales['month'] = train_sales['date'].apply(lambda x: x.split('.')[1])
     from itertools import product
     matrix = []
     cols = ['shop_id', 'item_id', 'date_block_num']
